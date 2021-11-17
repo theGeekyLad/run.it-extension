@@ -2,7 +2,7 @@ let commandContainer = document.getElementById('command');
 let outputContainer = document.getElementById('output');
 let serverStatusContainer = document.getElementById('server-status');
 
-fetch('http://localhost:8000')
+fetch('http://localhost:7236')
   .then(() => {
     serverStatusContainer.className = "has-text-success linkify";
     serverStatusContainer.innerText = "Connected"
