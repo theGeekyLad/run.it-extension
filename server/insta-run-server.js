@@ -9,11 +9,12 @@ const server = http.createServer((req, res) => {
     req.on('data', chunk => reqBody += chunk);
     req.on('end', () => {
         let command = JSON.parse(reqBody).command;
+        let originalCommand = command;
         if (command.startsWith('sudo') && command.length > 5)
             command = `echo ${sudoPass} | sudo -S -p "" ${command.substring(5)}`
         console.log(`Running command "${command}" ...`);
         exec(command, { cwd: process.env.HOME }, (error, stdout, stderr) => {
-            let result = { command };
+            let result = { command: originalCommand };
             if (stderr) result['output'] = stderr;
             else if (stdout) result['output'] = stdout;
             else result['output'] = error;
