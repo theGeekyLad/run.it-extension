@@ -10,6 +10,7 @@ const server = http.createServer((req, res) => {
     req.on('end', () => {
         res.writeHead(200, { 'Content-Type': 'application/json' });
         if (req.method === 'GET') {
+            console.log('\nReceived heartbeat request.');
             res.end(JSON.stringify({ message: 'heartbeat' }));
             return;
         }
