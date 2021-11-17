@@ -54,7 +54,14 @@ async function run_command(info, tab) {
       ? 'cat ' + selected_text
       : selected_text;
 
-  fetch('http://localhost:8000', {
+  chrome.notifications.create({
+    type: "basic",
+    title: 'Running command ...',
+    message: selected_text,
+    iconUrl: "./images/icon_128.png"
+  });
+
+  fetch('http://localhost:7236', {
     method: 'POST',
     body: JSON.stringify({
       command: selected_text
@@ -65,7 +72,7 @@ async function run_command(info, tab) {
         type: "basic",
         title: selected_text,
         message: "Command run successfully!",
-        iconUrl: "./images/notes-icon_128.png"
+        iconUrl: "./images/icon_128.png"
       });
     });
   });

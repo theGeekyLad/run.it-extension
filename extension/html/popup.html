@@ -9,22 +9,28 @@
 
 <body>
   <div class="card popup">
-    <header class="card-header">
+    <header class="card-header p buttonify d-flex-center">
+      <img src="../images/icon_128.png" alt="" width="40">
       <p class="card-header-title center-text">
         Run.it
       </p>
     </header>
     <div class="card-content">
       <div class="content">
-        <i>Command</i>
+        <i class="dead">Command</i>
         <br>
         <code id="command"></code>
         <hr>
-        <i>Result</i>
+        <i class="dead">Result</i>
         <br>
         <code id="output"></code>
       </div>
     </div>
+    <footer class="card-footer">
+      <div class="card-footer-item" id="show-notes">
+        <p id="server-status" class="has-text-warning">Connecting ...</p>
+      </div>
+    </footer>
   </div>
   <script src="../js/popup.js"></script>
 </body>

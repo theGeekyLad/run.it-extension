@@ -34,15 +34,27 @@ h1{
   width: 100%;
 }
 
-.tag {
-  user-select: none;
-  cursor: pointer;
-}
-
 #dark-mode-toggle-container {
   position: absolute;
   top: 12px;
   right: 12px;
+}
+
+.dead {
+  user-select: none;
+}
+
+.buttonify {
+  user-select: none;
+  cursor: pointer;
+}
+
+.linkify {
+  user-select: none;
+  cursor: pointer;
+}
+.linkify:hover {
+  text-decoration: underline;
 }
 
 /* bulma overrides */
@@ -62,6 +74,16 @@ h1{
 
 .ml {
   margin-left: 12px;
+}
+
+.p {
+  padding: 12px;
+}
+
+.d-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* responsiveness */
