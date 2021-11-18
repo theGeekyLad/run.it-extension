@@ -2,8 +2,6 @@ const { exec, spawn } = require('child_process');
 const http = require('http');
 const { stderr, stdout } = require('process');
 
-const sudoPass = '4710';
-
 const server = http.createServer((req, res) => {
     let reqBody = '';
     req.on('data', chunk => reqBody += chunk);
@@ -14,11 +12,11 @@ const server = http.createServer((req, res) => {
             res.end(JSON.stringify({ message: 'heartbeat' }));
             return;
         }
-        let command = JSON.parse(reqBody).command;
+        let { command, sudo_pass } = JSON.parse(reqBody);
         let originalCommand = command;
         if (command.startsWith('sudo') && command.length > 5)
-            command = `echo ${sudoPass} | sudo -S -p "" ${command.substring(5)}`
-        console.log(`\nRunning command "${originalCommand}" ...`);
+            command = `echo ${sudo_pass} | sudo -S -p "" ${command.substring(5)}`
+        console.log(`\nRunning command "${command}" with password ${sudo_pass} ...`);
         exec(command, { cwd: process.env.HOME }, (error, stdout, stderr) => {
             let result = { command: originalCommand };
             if (stderr) result['output'] = stderr;
