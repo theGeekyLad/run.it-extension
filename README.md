@@ -2,6 +2,8 @@
 
 A Chrome extension that lets you run local terminal commands on your local Linux / MacOS machine directly from the browser.
 
+<img src="https://user-images.githubusercontent.com/15625446/142419418-3e35d17e-cb2a-4ae2-9c20-db96c827ec77.png" width="300">
+
 ## Why do I need it? :confused:
 
 Here are some possible cases where the extension immensely accelerates working with the [shell](https://www.tutorialspoint.com/unix/unix-what-is-shell.htm):
@@ -19,6 +21,8 @@ As of now, head over to [releases](https://github.com/theGeekyLad/run.it-extensi
 ## What's in it? :gem:
 
 Here's what you can do with the extension:
+
+![run it-demo](https://user-images.githubusercontent.com/15625446/142419634-59eeca6e-1934-4a5f-8ad9-a0d9b7bbf680.gif)
 
 - Open [a website](https://askubuntu.com/a/429950/959312) that contains some commands
 - Use the mouse to select a command
