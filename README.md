@@ -1,4 +1,4 @@
-# Run.it
+# <img src="https://user-images.githubusercontent.com/15625446/142420094-c2c26925-67ac-4e57-bde2-746abe80fd7e.png" width="25"> Run.it
 
 A Chrome extension that lets you run local terminal commands on your local Linux / MacOS machine directly from the browser.
 
