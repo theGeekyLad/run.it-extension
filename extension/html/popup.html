@@ -5,17 +5,22 @@
 <head>
   <link rel="stylesheet" href="../css/bulma.min.css" />
   <link rel="stylesheet" href="../css/styles.css" />
+  <script src="https://kit.fontawesome.com/1a5f0bf1d6.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <div class="card popup">
-    <header class="card-header p buttonify d-flex-center">
-      <img src="../images/icon_128.png" alt="" width="40">
-      <p class="card-header-title center-text">
+    <header class="card-header buttonify d-flex-center">
+      <div id="title" class="card-header-title">
         Run.it
-      </p>
+        <i id="github-button" class="ml has-text-link linkify" hidden>
+          <h6>View on GitHub</h6>
+        </i>
+      </div>
+      <button id="settings-button" class="button card-header-icon is-small is-light is-info mr">Settings</button>
     </header>
-    <div class="card-content">
+
+    <div id="main" class="card-content">
       <div class="content">
         <i class="dead">Command</i>
         <br>
@@ -26,9 +31,19 @@
         <code id="output"></code>
       </div>
     </div>
+
+    <div id="settings" class="card-content" hidden>
+      <div class="content">
+        <i class="dead">sudo password</i>
+        <br>
+        <input id="sudo-pass-field" class="input" type="password">
+      </div>
+    </div>
+
     <footer class="card-footer">
       <div class="card-footer-item" id="show-notes">
         <p id="server-status" class="has-text-warning">Connecting ...</p>
+        <p id="helper-button" class="ml has-text-link linkify" hidden><i>Help!</i></p>
       </div>
     </footer>
   </div>
