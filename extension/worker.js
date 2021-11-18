@@ -1,29 +1,29 @@
 chrome.contextMenus.create({
-  title: 'Run command as ...',
+  title: 'Run command',
   id: 'RUN_CMD',
   contexts: ['selection'],
 });
 
-chrome.contextMenus.create({
-  title: 'It is',
-  id: 'RUN_CMD_MAIN',
-  contexts: ['selection'],
-  parentId: 'RUN_CMD',
-});
+// chrome.contextMenus.create({
+//   title: 'It is',
+//   id: 'RUN_CMD_MAIN',
+//   contexts: ['selection'],
+//   parentId: 'RUN_CMD',
+// });
 
-chrome.contextMenus.create({
-  title: 'ls ...',
-  id: 'RUN_CMD_LS',
-  contexts: ['selection'],
-  parentId: 'RUN_CMD',
-});
+// chrome.contextMenus.create({
+//   title: 'ls ...',
+//   id: 'RUN_CMD_LS',
+//   contexts: ['selection'],
+//   parentId: 'RUN_CMD',
+// });
 
-chrome.contextMenus.create({
-  title: 'cat ...',
-  id: 'RUN_CMD_CAT',
-  contexts: ['selection'],
-  parentId: 'RUN_CMD',
-});
+// chrome.contextMenus.create({
+//   title: 'cat ...',
+//   id: 'RUN_CMD_CAT',
+//   contexts: ['selection'],
+//   parentId: 'RUN_CMD',
+// });
 
 chrome.contextMenus.onClicked.addListener(run_command);
 
@@ -48,31 +48,34 @@ async function run_command(info, tab) {
   }
 
   // modifying command as required
-  selected_text = info.menuItemId === 'RUN_CMD_LS'
-    ? 'ls ' + selected_text
-    : info.menuItemId === 'RUN_CMD_CAT'
-      ? 'cat ' + selected_text
-      : selected_text;
+  // selected_text = info.menuItemId === 'RUN_CMD_LS'
+  //   ? 'ls ' + selected_text
+  //   : info.menuItemId === 'RUN_CMD_CAT'
+  //     ? 'cat ' + selected_text
+  //     : selected_text;
 
-  chrome.notifications.create({
-    type: "basic",
-    title: 'Running command ...',
-    message: selected_text,
-    iconUrl: "./images/icon_128.png"
-  });
+  // chrome.notifications.create({
+  //   type: "basic",
+  //   title: 'Running command ...',
+  //   message: selected_text,
+  //   iconUrl: "./images/icon_128.png"
+  // });
 
-  fetch('http://localhost:7236', {
-    method: 'POST',
-    body: JSON.stringify({
-      command: selected_text
-    })
-  }).then(data => data.json()).then(result => {
-    chrome.storage.sync.set(result, () => {
-      chrome.notifications.create({
-        type: "basic",
-        title: selected_text,
-        message: "Command run successfully!",
-        iconUrl: "./images/icon_128.png"
+  chrome.storage.sync.get(null, items => {
+    fetch('http://localhost:7236', {
+      method: 'POST',
+      body: JSON.stringify({
+        command: selected_text,
+        sudo_pass: items?.settings?.sudo_pass ?? ''
+      })
+    }).then(data => data.json()).then(result => {
+      chrome.storage.sync.set(result, () => {
+        chrome.notifications.create({
+          type: "basic",
+          title: selected_text,
+          message: "Command run successfully!",
+          iconUrl: "./images/icon_128.png"
+        });
       });
     });
   });
