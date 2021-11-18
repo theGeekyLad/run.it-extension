@@ -20,7 +20,7 @@ As of now, head over to [releases](https://github.com/theGeekyLad/run.it-extensi
 
 Here's what you can do with the extension:
 
-- Open [a website] that contains some commands(https://askubuntu.com/a/429950/959312)
+- Open [a website](https://askubuntu.com/a/429950/959312) that contains some commands
 - Use the mouse to select a command
 - Right-click and select _Run command_
 - Wait for a success notification!
