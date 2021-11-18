@@ -46,7 +46,6 @@ h1{
 
 .buttonify {
   user-select: none;
-  cursor: pointer;
 }
 
 .linkify {
@@ -74,6 +73,14 @@ h1{
 
 .ml {
   margin-left: 12px;
+}
+
+.mb {
+  margin-bottom: 12px;
+}
+
+.mr {
+  margin-right: 12px;
 }
 
 .p {
