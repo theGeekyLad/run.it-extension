@@ -16,7 +16,7 @@ const server = http.createServer((req, res) => {
         let originalCommand = command;
         if (command.startsWith('sudo') && command.length > 5)
             command = `echo ${sudo_pass} | sudo -S -p "" ${command.substring(5)}`
-        console.log(`\nRunning command "${command}" with password ${sudo_pass} ...`);
+        console.log(`\nRunning command "${originalCommand}" with password ${sudo_pass} ...`);
         exec(command, { cwd: process.env.HOME }, (error, stdout, stderr) => {
             let result = { command: originalCommand };
             if (stderr) result['output'] = stderr;
