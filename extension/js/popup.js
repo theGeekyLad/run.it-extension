@@ -75,7 +75,7 @@ fetch('http://localhost:7236')
     serverStatusContainer.className = "has-text-success dead";
     serverStatusContainer.innerText = "Connected"
   }).catch(() => {
-    serverStatusContainer.className = "has-text-success dead";
+    serverStatusContainer.className = "has-text-danger dead";
     serverStatusContainer.innerText = "Disconnected"
   });
 
