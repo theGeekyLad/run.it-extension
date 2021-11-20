@@ -31,6 +31,20 @@ Here's what you can do with the extension:
 - Click the extension icon in the Chrome extension bar (or `Alt+X`)
 - See the output and be zen!
 
+## FAQ :raising_hand_woman:
+
+### Does it work with `sudo`?
+
+In short, yes. Read on to know how.
+
+### I'm concerned. How exactly does `sudo` work?
+
+For privacy sakes, you're totally justified wanting to know. Well, every other layer of abstraction over password input increases your chances of getting snooped. This feature is no exception. As of now, the password is bundled into the body of every POST request to a local Node.js server that ultimately executes the command in question. The password is _in clear_ and _not_ hashed and if you're serious about stuff like MITM, I'd recommend you clear the password from the extension settings (which also clears it from the browser storage). In that case, you're super safe for sure but, of course, you can't run `sudo` commands!
+
+### I ran a command with this extension but didn't receive a notification of completion. What's going on?
+
+It's quite likely that the command is waiting for some kind of user input or the `sudo` password could be wrong or maybe the command is long-running.
+
 <br>
 
 Made with :heart: by `theGeekyLad`
