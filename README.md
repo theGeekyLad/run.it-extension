@@ -51,7 +51,7 @@ It's quite likely that the command is waiting for some kind of user input or the
 
 You're probably not running the local server or maybe the port 7236 is taken. Head over to [releases](https://github.com/theGeekyLad/run.it-extension/releases) and carefully run through the installation once more.
 
-_**Note:** As of now, the port of the local server cannot be changed._
+_**Note:** As of now, the port of the local server cannot be changed. You might've to close another application that's using this port._
 
 <br>
 
